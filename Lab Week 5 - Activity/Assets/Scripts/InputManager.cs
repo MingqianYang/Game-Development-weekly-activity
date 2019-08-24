@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -25,8 +26,9 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject rebfab = GameObject.FindWithTag("Red");
-        GameObject bluefab = GameObject.FindWithTag("Blue");
+
+        GameObject rebfab = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag("Red"));
+        GameObject bluefab = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag("Blue"));
 
         // 70%
         if (Input.GetKeyDown(KeyCode.W))
@@ -108,7 +110,7 @@ public class InputManager : MonoBehaviour
         // 100%  
         if (Input.GetKeyDown(KeyCode.E))
         {
-       
+
             if (rebfab != null)
             {
                 // redObj
@@ -122,17 +124,23 @@ public class InputManager : MonoBehaviour
                     rebfab.SetActive(true);
                 }
             }
-           
-            // blueObj
-            if (bluefab.GetComponent<PrintAndHide>() != null)
+
+            if (rebfab != null)
             {
-                Destroy(bluefab.GetComponent<PrintAndHide>());
+                // blueObj
+                if (bluefab.GetComponent<PrintAndHide>() != null)
+                {
+                    Destroy(bluefab.GetComponent<PrintAndHide>());
+                }
+                else
+                {
+                    bluefab.AddComponent<PrintAndHide>();
+                    bluefab.SetActive(true);
+                }
+
             }
-            else
-            {
-                bluefab.AddComponent<PrintAndHide>();
-                bluefab.SetActive(true);
-            }
+
+
             
         }
     }
