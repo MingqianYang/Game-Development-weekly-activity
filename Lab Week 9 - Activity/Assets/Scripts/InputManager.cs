@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
 {
     void Awake()
     {
-        //DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update
