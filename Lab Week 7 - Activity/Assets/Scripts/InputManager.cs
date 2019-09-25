@@ -108,7 +108,6 @@ public class InputManager : MonoBehaviour
     {
         foreach (GameObject item in itemList)
         {
-
             bool result = tweener.AddTween(item.transform, item.transform.position, endPos, duration);
             if (result)
             {
