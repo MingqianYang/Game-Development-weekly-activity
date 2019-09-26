@@ -28,6 +28,8 @@ public class InputManager : MonoBehaviour
 
         if (GameManager.currentGameState == GameManager.GameState.Start && Input.GetKeyDown(KeyCode.Return))
         {
+            // destory Tweenr component
+            Destroy(GetComponent<Tweener>());
             GameManager.currentGameState = GameManager.GameState.WalkingLevel;
             SceneManager.LoadScene(0);
             
