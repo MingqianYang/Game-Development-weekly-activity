@@ -14,9 +14,7 @@ public class CameraMovement : MonoBehaviour {
 
 	public float sensX = 1.0f;
 	public float sensY = 1.0f;
-	
-	float rotationY = 0.0f;
-	float rotationX = 0.0f;
+
 
 	void Update () {
 

@@ -59,7 +59,11 @@ public class UIManager : MonoBehaviour
     }
     void LateUpdate()
     {
-        healthBillboard.forward = -Camera.main.transform.forward;
+        if(healthBillboard!=null)
+        {
+            healthBillboard.forward = -Camera.main.transform.forward;
+
+        }
     }
     public void LoadFirstLevel()
     {
